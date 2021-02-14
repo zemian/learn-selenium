@@ -16,6 +16,8 @@ and support the automation of web browsers.
     /usr/local/bin/chromedriver --version
     ```
 
+   For Firefox: you will need "geckodriver" install.
+
 2. Install this npm package
 
     npm install
@@ -25,3 +27,7 @@ and support the automation of web browsers.
    node test/google-search.js
    
    To use "test/webdriver-test.js", see comments.
+
+## How to write selenium scripts using JS
+
+https://www.selenium.dev/selenium/docs/api/javascript/index.html

@@ -13,6 +13,12 @@ Usage:
 	Type "quit" to exit this script
 	Or Type "ENTER" to evaluate the "test/webdriver-test-scripts/demo.js" script file
 	Or Type a script name and press ENTER to evaluate it.
+
+The script will have the following global variables accessible:
+
+	driver - the webdriver instance from selenium
+	console - use to print console output
+	require - function to import node modules
 */
 
 const {Builder, By, until} = require('selenium-webdriver');
@@ -35,7 +41,7 @@ async function main() {
 	const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
 	function promptLoop () {
-		prompt.question("Press ENTER to continue, (or 'quit' to exit)? ", async function (answer) {
+		prompt.question("Enter script and ENTER to continue, (or 'quit' to exit)? ", async function (answer) {
 			console.log("Answer: ", answer);
 			if (answer == '') {
 				await onEnter(driver);

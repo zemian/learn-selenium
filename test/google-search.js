@@ -1,16 +1,13 @@
-// https://www.selenium.dev/selenium/docs/api/javascript/index.html
-//
-// Note: you will need "geckodriver" install for Firefox
+// Open google site and perform a search
 
 const {Builder, By, Key, until} = require('selenium-webdriver');
-
-(async function example() {
+(async function () {
   let driver = await new Builder().forBrowser('firefox').build();
   try {
-    await driver.get('http://www.google.com/ncr');
+    await driver.get('http://www.google.com');
     await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
     await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
   } finally {
-    //await driver.quit();
+    await driver.quit();
   }
 })();
