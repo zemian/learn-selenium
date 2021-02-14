@@ -36,7 +36,7 @@ async function main() {
 	console.log("Starting browser automation.");
 
 	const options = new chrome.Options();
-	options.addArguments('user-data-dir=temp');
+	options.addArguments('user-data-dir=temp/chrome-data');
 	console.log("Chrome options", options);
 	const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
