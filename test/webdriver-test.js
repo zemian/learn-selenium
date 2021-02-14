@@ -9,9 +9,10 @@ Usage:
 
 1. Run: node src/test/demos/webdriver-test.js
 2. Wait for browser to open
-3. On the termina prompt, you may type following:key
+3. On the terminal prompt, you may type following:key
 	Type "quit" to exit this script
-	Type "ENTER" to re-evaluate the test.js script file 
+	Or Type "ENTER" to evaluate the "test/webdriver-test-scripts/demo.js" script file
+	Or Type a script name and press ENTER to evaluate it.
 */
 
 const {Builder, By, until} = require('selenium-webdriver');
@@ -61,7 +62,7 @@ function isPromise () {
 	// https://gist.github.com/MarkoCen/ec27b8cd42855fde8a245d43b7b081d0
 }
 
-async function onEnter(driver, fn = 'test/demos/test.js') {
+async function onEnter(driver, fn = 'test/webdriver-test-scripts/demo.js') {
 	console.log("Running VM script:", fn);
 	fs.readFile(fn, async (err, data) => {
 		if (err) {
