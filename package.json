@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/browser-integration",
+    "test-i": "node test/browser-interactive/webdriver-test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "selenium-webdriver": "^4.0.0-alpha.8"
+    "selenium-webdriver": "^4.0.0-alpha.8",
+    "mocha": "^8.3.0"
+  },
+  "dependencies": {
   }
 }

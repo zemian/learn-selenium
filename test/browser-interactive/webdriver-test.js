@@ -41,8 +41,8 @@ async function main() {
 	const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
 	function promptLoop () {
-		prompt.question("Enter script and ENTER to continue, (or 'quit' to exit)? ", async function (answer) {
-			console.log("Answer: ", answer);
+		prompt.question("Enter script and ENTER to continue, (or 'quit' to exit)? \n", async function (answer) {
+			// console.log("Answer: " + answer);
 			if (answer == '') {
 				await onEnter(driver);
 			} else {
@@ -64,13 +64,11 @@ async function main() {
 	promptLoop();
 }
 
-function isPromise () {
-	// https://gist.github.com/MarkoCen/ec27b8cd42855fde8a245d43b7b081d0
-}
-
-async function onEnter(driver, fn = 'test/webdriver-test-scripts/demo.js') {
-	console.log("Running VM script:", fn);
-	fs.readFile(fn, async (err, data) => {
+async function onEnter(driver, fileName = 'demo.js') {
+	if (!fileName.startsWith('/'))
+		fileName = 'test/browser-interactive/scripts/' + fileName;
+	console.log("Running VM script: " + fileName);
+	fs.readFile(fileName, async (err, data) => {
 		if (err) {
 			console.error("ERROR: ", err);
 			return;
@@ -83,7 +81,7 @@ async function onEnter(driver, fn = 'test/webdriver-test-scripts/demo.js') {
 			require: require
 		}
 		try {
-			let ret = vm.runInNewContext(data, context, {filename: fn});
+			let ret = vm.runInNewContext(data, context, {filename: fileName});
 			// If result is an Promise instance, wait for it.
 			if (Promise.resolve(ret) !== ret) {
 				ret = await ret;

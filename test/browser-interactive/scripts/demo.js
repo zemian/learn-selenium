@@ -1,7 +1,5 @@
-// Use this test script with webdriver-test.js to test browser interactively
-//
-// Open google site and perform a search
-
+// Demo script to be run by webdriver-test.js interactively
+// Note the "driver" var is already loaded and ready to use
 const {By, Key, until} = require('selenium-webdriver');
 (async function () {
     await driver.get('http://www.google.com');
