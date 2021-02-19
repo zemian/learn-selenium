@@ -7,11 +7,11 @@ API without have to restart full script with browser reloading.
 
 Usage:
 
-1. Run: node src/test/demos/webdriver-test.js
+1. Run: node webdriver-test.js
 2. Wait for browser to open
 3. On the terminal prompt, you may type following:key
 	Type "quit" to exit this script
-	Or Type "ENTER" to evaluate the "test/webdriver-test-scripts/demo.js" script file
+	Or Type "ENTER" to evaluate the "demo.js" script file
 	Or Type a script name and press ENTER to evaluate it.
 
 The script will have the following global variables accessible:
@@ -21,7 +21,7 @@ The script will have the following global variables accessible:
 	require - function to import node modules
 */
 
-const {Builder, By, until} = require('selenium-webdriver');
+const {Builder} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const readline = require("readline");
 const vm = require('vm');
