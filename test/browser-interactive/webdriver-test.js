@@ -53,8 +53,8 @@ async function main() {
 					await driver.quit();
 					prompt.close();
 					return;
-				} else if (command === 'test') {
-					const fn = args[1];
+				} else {
+					const fn = command;
 					await onEnter(driver, fn);
 				}
 			}
