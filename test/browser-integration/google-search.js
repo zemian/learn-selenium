@@ -15,9 +15,8 @@ describe('browser tests', function() {
   })
 
   it('google search', async function () {
-    // Open google site and perform a search
+    // Open google site and ensure title is displayed
     await driver.get('http://www.google.com');
-    await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-    await driver.wait(until.titleIs('webdriver - Google Search'), maxTimeout);
+    await driver.wait(until.titleIs('Google'), maxTimeout);
   })
 })

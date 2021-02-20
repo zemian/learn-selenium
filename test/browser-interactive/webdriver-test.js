@@ -37,7 +37,7 @@ async function main() {
 
 	const options = new chrome.Options();
 	options.addArguments('user-data-dir=temp/chrome-data');
-	console.log("Chrome options", options);
+	//console.log("Chrome options", options);
 	const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
 	function promptLoop () {
@@ -86,7 +86,7 @@ async function onEnter(driver, fileName = 'demo.js') {
 			if (Promise.resolve(ret) !== ret) {
 				ret = await ret;
 			}
-			console.log("Result:", ret);
+			//console.log("Result:", ret);
 		} catch (error) {
 			console.error("ERROR: ", error);
 			console.log("Please re-enter command to retry.");
