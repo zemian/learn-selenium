@@ -42,7 +42,7 @@ class DriverByCss {
 
     findElement(cssSelector) {
         let locator = By.css(cssSelector);
-        return driver.findElement(locator);
+        return this.driver.findElement(locator);
     }
 
     waitElement(cssSelector) {
