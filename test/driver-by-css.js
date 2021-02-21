@@ -2,7 +2,7 @@
  * A extension to Selenium Driver that add more convenient methods
  * for easier to use and help write shorter test code.
  */
-const {By, Key, until} = require('selenium-webdriver');
+const {Builder, By, Key, until} = require('selenium-webdriver');
 class DriverByCss {
     driver;
     maxTimeout;
@@ -12,11 +12,16 @@ class DriverByCss {
     Key = Key;
     until = until;
 
-    constructor(driver, maxTimeout = 2000) {
-        this.driver = driver;
+    constructor(webDriver, maxTimeout = 2000) {
+        this.driver = webDriver;
         this.maxTimeout = maxTimeout;
     }
-
+    
+    /** Return a promise that resolve to a web Driver */
+    static getWebDriver(browser = 'chrome') {
+        return new Builder().forBrowser(browser).build();
+    }
+    
     /** Open URL and return title text */
     openUrl(url) {
         return this.openUrlAndGetElement(url, 'head > title').then(elem => {
