@@ -26,6 +26,7 @@ const chrome = require('selenium-webdriver/chrome');
 const readline = require("readline");
 const vm = require('vm');
 const fs = require('fs');
+const DriverByCss = require('../driver-by-css');
 
 const prompt = readline.createInterface({
     input: process.stdin,
@@ -75,8 +76,10 @@ async function onEnter(driver, fileName = 'demo.js') {
 		}
 
 		// NOTE: - console.log() will not work by default
+		let cssDriver = new DriverByCss(driver, 5000);
 		const context = {
 			driver: driver,
+			cssDriver: cssDriver,
 			console: console,
 			require: require
 		}
