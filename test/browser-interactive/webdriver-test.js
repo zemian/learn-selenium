@@ -19,6 +19,8 @@ The script will have the following global variables accessible:
 	driver - the webdriver instance from selenium
 	console - use to print console output
 	require - function to import node modules
+
+REF: https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html
 */
 
 const {Builder} = require('selenium-webdriver');

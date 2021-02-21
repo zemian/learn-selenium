@@ -62,9 +62,18 @@ class DriverByCss {
         return this.waitElement('head > title').then((elem) => elem.getAttribute('textContent'));
     }
 
-    /** Wait, send input text and follow by ENTER key */
+    /** Wait, send input text and follow by TAB key */
     sendInputText(cssSelector, text) {
-        return this.waitElement(cssSelector).then((elem) => elem.sendKeys(text, Key.RETURN));
+        return this.findElement(cssSelector).then((elem) => elem.sendKeys(text));
+    }
+    sendInputTextEnter(cssSelector, text) {
+        return this.findElement(cssSelector).then((elem) => elem.sendKeys(text, Key.RETURN));
+    }
+    sendEnterKey(cssSelector) {
+        return this.findElement(cssSelector).sendKeys(Key.RETURN);
+    }
+    clickElement(cssSelector) {
+        return this.findElement(cssSelector).click();
     }
 }
 
