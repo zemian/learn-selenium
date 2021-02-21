@@ -24,10 +24,15 @@ and support the automation of web browsers.
    
 3. Just run the tests with NodeJs
 
-   node test/google-search.js
-   
-   To use "test/webdriver-test.js", see comments.
+   npm run test
+
+Or you may test the browser with scripts interactively:
+
+   npm run test-interactive
+
+Press ENTER to execute the "test/browser-interactive/scripts/demo.js" file.
 
 ## How to write selenium scripts using JS
 
-https://www.selenium.dev/selenium/docs/api/javascript/index.html
+- https://www.selenium.dev/selenium/docs/api/javascript/index.html
+- https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html
