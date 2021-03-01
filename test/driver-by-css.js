@@ -16,17 +16,21 @@ class DriverByCss {
         this.driver = webDriver;
         this.maxTimeout = maxTimeout;
     }
-    
+
     /** Return a promise that resolve to a web Driver */
     static getWebDriver(browser = 'chrome') {
         return new Builder().forBrowser(browser).build();
     }
-    
+
     /** Open URL and return title text */
     openUrl(url) {
         return this.openUrlAndGetElement(url, 'head > title').then(elem => {
             return elem.getAttribute('textContent');
         });
+    }
+
+    pause(ms) {
+        return this.driver.sleep(ms);
     }
 
     openUrlAndGetElement(url, cssSelector = null) {

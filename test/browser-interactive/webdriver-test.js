@@ -42,6 +42,7 @@ async function main() {
 	options.addArguments('user-data-dir=temp/chrome-data');
 	//console.log("Chrome options", options);
 	const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+	await driver.manage().window().setRect({width: 1216, height: 980, x: 0, y: 0});
 
 	function promptLoop () {
 		prompt.question("Enter script and ENTER to continue, (or 'quit' to exit)? \n", async function (answer) {
