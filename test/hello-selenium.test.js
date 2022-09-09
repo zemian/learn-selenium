@@ -8,30 +8,11 @@
 // It's normally a bad practice to make webdriver to sleep a certain number of 
 // second! It's better to wait for a condition instead.
 //
-const {Builder, By, Key, until} = require('selenium-webdriver');
-it("selenium google search example#1", function() {
-  this.timeout(60000); // Explicit timtout, or use "mocha --timeout" option
-  return new Promise(async (resolve) => {
-    let driver = await new Builder().forBrowser('chrome').build();
-    try {
-      await driver.get('http://www.google.com/');
-      await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-      await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-    } finally {
-      await driver.quit();
-    }
-    resolve();
-  });
-});
-
-it("selenium google search example#2", async function() {
+it("selenium google search example", async function() {
   this.timeout(60000);
-  let driver = await new Builder().forBrowser('chrome').build();
-  try {
-    await driver.get('http://www.google.com/');
-    await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-    await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-  } finally {
-    await driver.quit();
-  }
+  let driver = await new Builder().forBrowser('chrome').build();  
+  await driver.get('http://www.google.com/');
+  await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
+  await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
+  await driver.quit();
 });
