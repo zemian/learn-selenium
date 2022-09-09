@@ -8,6 +8,7 @@
 // It's normally a bad practice to make webdriver to sleep a certain number of 
 // second! It's better to wait for a condition instead.
 //
+const {Builder, By, Key, until} = require('selenium-webdriver');
 it("selenium google search example", async function() {
   this.timeout(60000);
   let driver = await new Builder().forBrowser('chrome').build();  
