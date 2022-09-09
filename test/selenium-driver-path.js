@@ -6,7 +6,7 @@ const {Builder, By, Key, until, Capabilities} = require('selenium-webdriver');
 var chrome = require('selenium-webdriver/chrome');
 //var path = require('chromedriver').path;
 
-it("selenium google search example", async function() {
+it("selenium custom chromedriver path", async function() {
   this.timeout(60000);
 
   // Note: this will initialize code to check Chrome browser version match to driver
